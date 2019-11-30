@@ -46,7 +46,7 @@ void gen_indices( uint32_t* idx, uint32_t anx, uint32_t any, uint32_t bnx, uint3
         }
     }
     uint32_t k=bnx*bny*inc;
-	if((k&7)!=0){
+    if((k&7)!=0){
         uint32_t n=alignment(k,8);
         for( uint32_t i=k; i<n; ++i ){ *idx=izero<<2; ++idx; }
     }
