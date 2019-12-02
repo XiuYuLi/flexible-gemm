@@ -35,7 +35,7 @@ __global__ void dk_sconv_32x32##suffix(\
     d_c+=by*qnc*ldc+(x<<2);  \
     const char* d_o=&cmem[0];\
     uint4 o0=*((const uint4*)&d_o[ 0]);  \
-	uint4 o1=*((const uint4*)&d_o[16]);  \
+    uint4 o1=*((const uint4*)&d_o[16]);  \
     float p0=*((const float*)&d_a[o0.x]);\
     float p1=*((const float*)&d_a[o0.y]);\
     float p2=*((const float*)&d_a[o0.z]);\

@@ -64,13 +64,13 @@ __global__ void dk_sconv_64x256##suffix(\
     *((float*)&bsst_base[6*1024])=q1.z;\
     *((float*)&bsst_base[7*1024])=q1.w;\
     __syncthreads();\
-    if(add_bias){ if(v<qnc){ s_bias[tid]=d_bias[bz*qnc+v];	} }\
+    if(add_bias){ if(v<qnc){ s_bias[tid]=d_bias[bz*qnc+v];  } }\
     SZERO64(c)\
     b[0]=*((float4*)&bsld[0x00]);\
     a[0]=*((float4*)&asld[0x00]);\
     b[1]=*((float4*)&bsld[0x40]);\
     a[1]=*((float4*)&asld[0x80]);\
-    unsigned int ofs=0x2800;	 \
+    unsigned int ofs=0x2800;     \
     for( int k=bnr-8; k>0; k-=8 )\
     {\
         d_b+=32;\
@@ -165,7 +165,7 @@ __global__ void dk_sconv_64x256##suffix(\
     a[0]=*((float4*)&asld[6*0x100+0x00]);\
     b[1]=*((float4*)&bsld[6*0x400+0x40]);\
     a[1]=*((float4*)&asld[6*0x100+0x80]);\
-    BOP8x8(c,&a[2],&b[2])				 \
+    BOP8x8(c,&a[2],&b[2])                \
     b[2]=*((float4*)&bsld[7*0x400+0x00]);\
     a[2]=*((float4*)&asld[7*0x100+0x00]);\
     b[3]=*((float4*)&bsld[7*0x400+0x40]);\
@@ -174,7 +174,7 @@ __global__ void dk_sconv_64x256##suffix(\
     BOP8x8(c,&a[2],&b[2])\
     float* bias;\
     if(add_bias){ bias=&s_bias[(slot<<5)|((lane&0x10)>>1)|((lane&1)<<2)]; }\
-	sgemm_epilog64x32##suffix( d_c, (const char*)bias, &smem[slot<<10], c, lane, ldc, x, cnr>>1, qnc-y, alpha );\
+    sgemm_epilog64x32##suffix( d_c, (const char*)bias, &smem[slot<<10], c, lane, ldc, x, cnr>>1, qnc-y, alpha );\
 }
 
 sconv_64x256(0,)

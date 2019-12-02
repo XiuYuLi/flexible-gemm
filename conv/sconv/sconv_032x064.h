@@ -119,7 +119,7 @@ __global__ void dk_sconv_32x64##suffix(\
         a[1]=*((float4*)&asld[7*0x080+0x00]);\
         b[3]=*((float4*)&bsld[7*0x100+0x40]);\
         BOP4x8(c,&a[0],&b[0])\
-		*((float*)&bsst[4*256])=q1.x;\
+        *((float*)&bsst[4*256])=q1.x;\
         *((float*)&bsst[5*256])=q1.y;\
         *((float*)&bsst[6*256])=q1.z;\
         *((float*)&bsst[7*256])=q1.w;\

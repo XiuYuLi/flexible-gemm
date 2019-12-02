@@ -1,3 +1,8 @@
+some dependency files can be found in deepcore_source_code;
+note :
+    data layout is CNHW
+    Can be used for NCHW layput with only small modify with start address of input-data and gen_indices function
+
 param comments:
 
     ldc : leading size of output data, >=cx*cy*bs('>' if padding else '==')

@@ -79,7 +79,7 @@ __global__ void dk_sconv_64x64##suffix(\
     *((float*)&sst_base[2048+6*256])=q1.z;\
     *((float*)&sst_base[2048+7*256])=q1.w;\
     __syncthreads();\
-    if(add_bias){ if(tid<qnc){ s_bias[tid]=d_bias[by*qnc+tid];	} }\
+    if(add_bias){ if(tid<qnc){ s_bias[tid]=d_bias[by*qnc+tid];  } }\
     SZERO64(c)\
     b[0]=*((float4*)&bsld[0x00]);\
     a[0]=*((float4*)&asld[0x00]);\

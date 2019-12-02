@@ -1,6 +1,6 @@
 #define sconv_128x64(add_bias,suffix)   \
 __global__ void dk_sconv_128x64##suffix(\
-    	  char *              d_c   ,\
+          char *              d_c   ,\
     const char * __restrict__ d_a   ,\
     const char * __restrict__ d_b   ,\
     const float* __restrict__ d_bias,\

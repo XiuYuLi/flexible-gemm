@@ -1,4 +1,3 @@
-#include"../blas/xblas/xgemm_epilog.h"
 #include"scorr_128x032.h"
 #include"scorr_128x064.h"
 #include"scorr_128x128.h"

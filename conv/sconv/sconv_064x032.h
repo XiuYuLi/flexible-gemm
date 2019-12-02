@@ -1,6 +1,6 @@
 #define sconv_64x32(add_bias,suffix)\
 __global__ void dk_sconv_64x32##suffix(\
-          char * 			  d_c   ,\
+          char *              d_c   ,\
     const char * __restrict__ d_a   ,\
     const char * __restrict__ d_b   ,\
     const float* __restrict__ d_bias,\
@@ -179,7 +179,7 @@ __global__ void dk_sconv_64x32##suffix(\
     BOP4x8(c,&a[0],&b[0])\
     BOP4x8(c,&a[1],&b[2])\
     float* bias;\
-	if(add_bias){ bias=&s_bias[((lane&0x10)>>1)|((lane&1)<<2)]; }\
+    if(add_bias){ bias=&s_bias[((lane&0x10)>>1)|((lane&1)<<2)]; }\
     sgemm_epilog32x32##suffix( d_c, (const char*)bias, &smem[slot<<9], c, lane, ldc, u, cnr, qnc, alpha );\
 }
 
